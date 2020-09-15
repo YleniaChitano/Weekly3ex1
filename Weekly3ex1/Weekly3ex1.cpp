@@ -1,14 +1,16 @@
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 
 
 int main() {
-    std::srand(8346);
+    srand(std::time (0));
     beginning:
     int random = std::rand();
     int guess;
-    question:
+   
     std::cout << "Try to guess the number I have thought. Please enter a number:\n";
+    question:
     std::cin >> guess;
 
     
