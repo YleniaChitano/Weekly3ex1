@@ -1,28 +1,24 @@
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <cstdlib> // Needed for srand ()
+#include <ctime> // Needed for time (0)
 
 
 int main() {
-    srand(std::time (0));
-    beginning:
-    int random = std::rand();
-    int guess;
+    srand(std::time (0)); // Generates a new random number, using time as a seed.
+    beginning: // Will begin from here when a new random number is needed.
+    int random = rand(); // "random" is a fixed random number taken from srand above.
+    int guess; // The guessed number
    
     std::cout << "Try to guess the number I have thought. Please enter a number:\n";
-    question:
-    std::cin >> guess;
-
-    
-
+    question: // Will go back here when the guessed number is wrong.
+    std::cin >> guess; 
 
     if (guess == random) {
         char yn;
         std::cout << "That's correct! You won! Do you want to play again (Y/N) ? \n";
         std::cin >> yn;
-        yn = toupper(yn);
+        yn = toupper(yn); // Makes yn case insensitive.
         if (yn == 'Y') {
-            int random = std::rand();
             goto beginning;
         }
 
